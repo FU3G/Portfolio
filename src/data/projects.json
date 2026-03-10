@@ -1,0 +1,20 @@
+[
+  {
+    "id": "proj-001",
+    "title": "Portfolio React (en cours)",
+    "description": "Portfolio développé avec React",
+    "techs": ["React", "Vite", "CSS"],
+    "type": "Web",
+    "liveUrl": "https://example.com",
+    "imageUrl": ""
+  },
+  {
+    "id": "proj-002",
+    "title": "Dashboard Analytics",
+    "description": "[Test] Interface de visualisation de données",
+    "techs": ["React", "Chart.js"],
+    "type": "Stage",
+    "liveUrl": "", 
+    "imageUrl": ""
+  }
+]
