@@ -66,15 +66,15 @@ function Projects() {
   }
 
   return (
-    <div>
+    <div className="projects-page">
 
-      <h1>Mes projets</h1>
+      <h1 className="page-title">Mes projets</h1>
 
-      <SearchBar search={search} setSearch={setSearch} />
-
-      <FilterBar filter={filter} setFilter={setFilter} />
-
-      <SortBar sort={sort} setSort={setSort} />
+      <div className="projects-controls">
+        <SearchBar search={search} setSearch={setSearch} />
+        <FilterBar filter={filter} setFilter={setFilter} />
+        <SortBar sort={sort} setSort={setSort} />
+      </div>
 
       {filteredProjects.length === 0 ? (
         <p>Aucun projet trouvé</p>
@@ -94,5 +94,6 @@ function Projects() {
     </div>
   )
 }
+
 
 export default Projects

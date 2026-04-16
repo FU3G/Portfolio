@@ -1,28 +1,18 @@
 import { QRCodeSVG } from "qrcode.react"
 
-function QRCodeWidget() {
+function QRCodeWidget({ color = "#888888", size = 110 }) {
 
   const vcardUrl = `${window.location.origin}/contact.vcf`
 
   return (
-    <div>
-
-      <p>Scannez pour enregistrer mon contact</p>
-
+    <div className="qr-widget">
       <QRCodeSVG
         value={vcardUrl}
-        size={160}
-        fgColor="#1E3A5F"
+        size={size}
+        fgColor={color}
+        bgColor="transparent"
         level="H"
-        includeMargin
       />
-
-      <p>
-        <a href="/contact.vcf" download>
-          Télécharger la vCard
-        </a>
-      </p>
-
     </div>
   )
 }

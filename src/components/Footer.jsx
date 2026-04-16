@@ -1,52 +1,37 @@
+import { useLocation } from "react-router-dom"
 import QRCodeWidget from "./QRCodeWidget"
 
 function Footer() {
 
+  const location = useLocation()
+  const isHome = location.pathname === "/"
+
   return (
-
     <footer className="footer">
-
       <div className="footer-content">
 
         <div className="footer-left">
-
-          <p className="footer-name">
-            Gregory P
-          </p>
-
-          <p className="footer-text">
-            Développeur JavaScript & React
-          </p>
-
+          <p className="footer-name">Greg<span>&lt;p&gt;</span></p>
+          <p className="footer-text">Administrateur Réseau</p>
         </div>
 
         <div className="footer-links">
-
-          <a href="https://github.com/FU3G" target="_blank">
-            GitHub
-          </a>
-
-          <a href="https://linkedin.com" target="_blank">
-            LinkedIn
-          </a>
-
+          <a href="https://github.com/FU3G" target="_blank" rel="noreferrer">GitHub</a>
+          <a href="https://linkedin.com" target="_blank" rel="noreferrer">LinkedIn</a>
         </div>
 
-        <div className="footer-qr">
+        {!isHome && (
+          <div className="footer-qr">
+            <QRCodeWidget size={64} />
+          </div>
+        )}
 
-          <QRCodeWidget />
-
-        </div>
       </div>
 
-    <p className="footer-text">
-    © {new Date().getFullYear()} Gregory P
-    </p>
+      <p className="footer-copy">© {new Date().getFullYear()} Gregory P</p>
 
     </footer>
-
   )
-
 }
 
 export default Footer
