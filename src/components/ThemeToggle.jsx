@@ -23,6 +23,7 @@ const MoonIcon = () => (
 function ThemeToggle() {
 
   const [theme, setTheme] = useState("light")
+  const [spinning, setSpinning] = useState(false)
 
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme")
@@ -37,6 +38,8 @@ function ThemeToggle() {
     setTheme(newTheme)
     document.documentElement.setAttribute("data-theme", newTheme)
     localStorage.setItem("theme", newTheme)
+    setSpinning(true)
+    setTimeout(() => setSpinning(false), 450)
   }
 
   return (
@@ -46,7 +49,9 @@ function ThemeToggle() {
       aria-label={theme === "light" ? "Activer le mode sombre" : "Activer le mode clair"}
     >
       <span className="theme-toggle-thumb">
-        {theme === "light" ? <MoonIcon /> : <SunIcon />}
+        <span className={`theme-icon${spinning ? " theme-icon--spin" : ""}`}>
+          {theme === "light" ? <MoonIcon /> : <SunIcon />}
+        </span>
       </span>
     </button>
   )

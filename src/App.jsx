@@ -17,6 +17,17 @@ function App() {
   return (
 
     <>
+      {/* Fond animé */}
+      <div className="bg-blobs" aria-hidden="true">
+        <div className="bg-blob bg-blob--1"></div>
+        <div className="bg-blob bg-blob--2"></div>
+        <div className="bg-blob bg-blob--3"></div>
+        <div className="bg-blob bg-blob--4"></div>
+      </div>
+
+      {/* Grain film */}
+      <div className="bg-grain" aria-hidden="true"></div>
+
       <Navbar />
 
       <ScrollToTop />

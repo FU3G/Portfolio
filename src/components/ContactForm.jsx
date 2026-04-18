@@ -2,96 +2,75 @@ import { useState } from "react"
 
 function ContactForm() {
 
-  const [form, setForm] = useState({
-    name: "",
-    email: "",
-    subject: "",
-    message: ""
-  })
+  const [form, setForm] = useState({ name: "", email: "", message: "" })
 
-  const handleChange = (event) => {
-    setForm({
-      ...form,
-      [event.target.name]: event.target.value
-    })
+  const handleChange = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value })
   }
 
-  const handleSubmit = async (event) => {
-
-    event.preventDefault()
-
+  const handleSubmit = async (e) => {
+    e.preventDefault()
     const url = import.meta.env.VITE_FORMSPREE_URL
-
     try {
-
       const response = await fetch(url, {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form)
       })
-
       if (response.ok) {
         alert("Message envoyé")
       } else {
         alert("Erreur lors de l'envoi")
       }
-
-    } catch (error) {
+    } catch {
       alert("Erreur réseau")
     }
-
   }
 
   return (
-
     <form onSubmit={handleSubmit}>
 
-      <input
-        type="text"
-        name="name"
-        placeholder="Nom"
-        value={form.name}
-        onChange={handleChange}
-        required
-      />
+      <div className="form-field">
+        <label className="form-label" htmlFor="cf-name">Nom</label>
+        <input
+          id="cf-name"
+          type="text"
+          name="name"
+          placeholder="Votre nom"
+          value={form.name}
+          onChange={handleChange}
+          required
+        />
+      </div>
 
-      <input
-        type="email"
-        name="email"
-        placeholder="Email"
-        value={form.email}
-        onChange={handleChange}
-        required
-      />
+      <div className="form-field">
+        <label className="form-label" htmlFor="cf-email">Email</label>
+        <input
+          id="cf-email"
+          type="email"
+          name="email"
+          placeholder="Votre email"
+          value={form.email}
+          onChange={handleChange}
+          required
+        />
+      </div>
 
-      <select
-        name="subject"
-        value={form.subject}
-        onChange={handleChange}
-      >
-        <option value="">Sujet</option>
-        <option value="opportunity">Opportunité</option>
-        <option value="question">Question</option>
-        <option value="collaboration">Collaboration</option>
-        <option value="other">Autre</option>
-      </select>
+      <div className="form-field form-field--grow">
+        <label className="form-label" htmlFor="cf-message">Message</label>
+        <textarea
+          id="cf-message"
+          name="message"
+          placeholder="Votre message..."
+          value={form.message}
+          onChange={handleChange}
+          required
+        />
+      </div>
 
-      <textarea
-        name="message"
-        placeholder="Votre message..."
-        value={form.message}
-        onChange={handleChange}
-        required
-      />
-
-      <button type="submit">
-        Envoyer
-      </button>
+      <button type="submit">Envoyer le message</button>
 
     </form>
-
   )
 }
 

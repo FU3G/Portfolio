@@ -63,13 +63,13 @@ function Navbar() {
 
         <div className="nav-right">
           <div className="nav-icons">
-            <a href="https://github.com/FU3G" target="_blank" rel="noreferrer" className="nav-icon-btn" aria-label="GitHub">
+            <a href="https://github.com/FU3G" target="_blank" rel="noreferrer" className="nav-icon-btn nav-icon-btn--github" aria-label="GitHub">
               <IconGitHub />
             </a>
-            <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="nav-icon-btn" aria-label="LinkedIn">
+            <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="nav-icon-btn nav-icon-btn--linkedin" aria-label="LinkedIn">
               <IconLinkedIn />
             </a>
-            <a href="mailto:contact@greg.dev" className="nav-icon-btn" aria-label="Email">
+            <a href="mailto:thewolfuego@gmail.com" className="nav-icon-btn nav-icon-btn--email" aria-label="Email">
               <IconMail />
             </a>
           </div>
