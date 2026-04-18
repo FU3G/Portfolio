@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom"
 import { useEffect, useState } from "react"
+import CountUp from "../components/CountUp"
 
 const TECH_COLORS = {
   // Langages
@@ -214,13 +215,15 @@ function Projects() {
 
         <div className="bento-card bento-stat-card">
           <p className="bento-eyebrow">Total</p>
-          <p className="stat-value">{loading ? "…" : allProjects.length}</p>
+          <p className="stat-value">
+            {loading ? "…" : <CountUp to={allProjects.length} />}
+          </p>
           <p className="stat-sub">projets & repos</p>
         </div>
 
         <div className="bento-card bento-stat-card">
           <p className="bento-eyebrow">Homelab & Pro</p>
-          <p className="stat-value">{manualProjects.length}</p>
+          <p className="stat-value"><CountUp to={manualProjects.length} /></p>
           <p className="stat-sub">ajoutés manuellement</p>
         </div>
 

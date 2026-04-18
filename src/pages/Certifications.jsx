@@ -1,3 +1,5 @@
+import CountUp from "../components/CountUp"
+
 const obtained = [
   {
     id: "ccna",
@@ -64,14 +66,14 @@ function Certifications() {
       {/* Stat obtenues */}
       <div className="bento-card bento-stat-card">
         <p className="bento-eyebrow">Obtenues</p>
-        <p className="stat-value">3</p>
+        <p className="stat-value"><CountUp to={3} /></p>
         <p className="stat-sub">certifications actives</p>
       </div>
 
       {/* Stat en cours */}
       <div className="bento-card bento-stat-card">
         <p className="bento-eyebrow">En cours</p>
-        <p className="stat-value">2</p>
+        <p className="stat-value"><CountUp to={2} /></p>
         <p className="stat-sub">en préparation</p>
       </div>
 

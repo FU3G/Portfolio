@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom"
+import CountUp from "../components/CountUp"
+import Globe from "../components/Globe"
 import QRCodeWidget from "../components/QRCodeWidget"
 import avatar from "../assets/avatar.png"
 
@@ -64,13 +66,23 @@ function Home() {
           <span className="status-dot"></span>
           <span>Disponible</span>
         </div>
-        <p className="bento-status-detail">Alternance · Stage<br />Île-de-France · Remote</p>
+        <Globe />
+        <div className="globe-cities">
+          <span className="globe-city">
+            <span className="globe-city-dot" />
+            <span>Marseille<br /><span className="globe-city-country">France</span></span>
+          </span>
+          <span className="globe-city">
+            <span className="globe-city-dot" />
+            <span>Montréal<br /><span className="globe-city-country">Canada</span></span>
+          </span>
+        </div>
       </div>
 
       {/* Stat — Expérience */}
       <div className="bento-card bento-stat-card">
         <p className="bento-eyebrow">Expérience</p>
-        <p className="stat-value">9 ans</p>
+        <p className="stat-value"><CountUp to={5} /> ans</p>
         <p className="stat-sub">d'expérience professionnelle</p>
       </div>
 
