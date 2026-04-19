@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Greg&lt;/P&gt; — Bientôt disponible</title>
+  <title>404 — Destination Host Unreachable</title>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -16,10 +16,13 @@
       --text-3:  #686866;
       --accent:  #ff6928;
       --green:   #22c55e;
+      --red:     #ff5f57;
       --dot:     rgba(255,255,255,0.04);
     }
 
-    html, body { height: 100%; }
+    html, body {
+      height: 100%;
+    }
 
     body {
       background-color: var(--bg);
@@ -81,7 +84,11 @@
       background: rgba(255,255,255,0.04);
       border-bottom: 1px solid var(--border);
     }
-    .t-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+    .t-dot {
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
     .t-red    { background: #ff5f57; }
     .t-yellow { background: #febc2e; }
     .t-green  { background: #28c840; }
@@ -105,10 +112,14 @@
       to   { opacity: 1; transform: translateX(0); }
     }
 
-    .t-prompt  { color: var(--accent); }
-    .t-ok      { color: var(--green); }
-    .t-warn    { color: #febc2e; }
-    .t-muted   { color: var(--text-3); }
+    .t-prompt { color: var(--accent); }
+    .t-path   { color: var(--green); }
+    .t-muted  { color: var(--text-3); }
+    .t-error  {
+      color: var(--red);
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
 
     .t-cursor {
       display: inline-block;
@@ -131,52 +142,30 @@
     .t-note {
       color: var(--text-2);
       font-size: 12px;
-      margin-bottom: 16px;
-      line-height: 1.6;
+      margin-bottom: 14px;
     }
 
-    /* Progress bar */
-    .progress-wrap { margin-bottom: 16px; }
-    .progress-header {
-      display: flex;
-      justify-content: space-between;
-      font-size: 11px;
-      color: var(--text-3);
-      margin-bottom: 6px;
-    }
-    .progress-track {
-      height: 4px;
-      background: var(--border);
-      border-radius: 999px;
-      overflow: hidden;
-    }
-    .progress-fill {
-      height: 100%;
-      background: linear-gradient(90deg, var(--accent), #ff9a5c);
-      border-radius: 999px;
-      width: 0%;
-      transition: width 1.6s cubic-bezier(0.4,0,0.2,1);
-    }
-
-    .links {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-    .link {
+    .btn-home {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
-      padding: 7px 16px;
+      gap: 8px;
+      padding: 9px 20px;
+      background: var(--accent);
+      color: #fff;
       border-radius: 7px;
-      border: 1px solid var(--border);
-      color: var(--text-2);
       font-family: inherit;
-      font-size: 12px;
+      font-size: 13px;
+      font-weight: 600;
       text-decoration: none;
-      transition: color 0.15s, border-color 0.15s;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 14px rgba(255,105,40,0.35);
+      transition: transform 0.15s, box-shadow 0.15s;
     }
-    .link:hover { color: var(--accent); border-color: var(--accent); }
+    .btn-home:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(255,105,40,0.5);
+    }
 
     .brand {
       position: relative;
@@ -205,14 +194,16 @@
   <p class="brand">Greg<em>&lt;/P&gt;</em></p>
 
   <script>
+    const path = window.location.pathname
     const LINES = [
-      { cls: "",       html: `<span class="t-prompt">greg@portfolio:~$</span> npm run deploy` },
-      { cls: "t-ok",   html: "✓  build completed in 0.48s" },
-      { cls: "t-ok",   html: "✓  assets optimized &amp; compressed" },
-      { cls: "t-ok",   html: "✓  routes resolved" },
-      { cls: "",       html: `<span class="t-prompt">greg@portfolio:~$</span> git status` },
-      { cls: "t-warn", html: "  modified: UI/polish — work in progress" },
-      { cls: "t-muted",html: "  nothing to commit, polishing..." },
+      { cls: "",        html: `<span class="t-prompt">greg@portfolio:~$</span> traceroute <span class="t-path">${path}</span>` },
+      { cls: "t-muted", html: "traceroute to unknown host, 30 hops max, 60 byte packets" },
+      { cls: "t-muted", html: " 1&nbsp; gateway.local (192.168.1.1) &nbsp;0.421 ms &nbsp;0.388 ms" },
+      { cls: "t-muted", html: " 2&nbsp; 10.0.0.1 (10.0.0.1) &nbsp;8.214 ms &nbsp;7.990 ms" },
+      { cls: "t-muted", html: " 3&nbsp; * * *" },
+      { cls: "t-muted", html: " 4&nbsp; * * * &nbsp;Request timeout for icmp_seq 3" },
+      { cls: "t-muted", html: " 5&nbsp; * * * &nbsp;Request timeout for icmp_seq 4" },
+      { cls: "t-error", html: "— 404 Destination Host Unreachable —" },
       { cls: "action" },
     ]
 
@@ -236,34 +227,12 @@
           if (line.cls === "action") {
             const el = document.createElement("div")
             el.className = "t-action"
+            el.style.animationDelay = "0s"
             el.innerHTML = `
-              <p class="t-note">Le portfolio est en cours de finition.<br>En attendant, retrouve-moi ici :</p>
-              <div class="progress-wrap">
-                <div class="progress-header"><span>UI / Polish</span><span id="pct">0%</span></div>
-                <div class="progress-track"><div class="progress-fill" id="bar"></div></div>
-              </div>
-              <div class="links">
-                <a class="link" href="https://github.com/FU3G" target="_blank" rel="noreferrer">
-                  <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.604-3.369-1.341-3.369-1.341-.454-1.154-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836a9.59 9.59 0 012.504.337c1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
-                  GitHub
-                </a>
-                <a class="link" href="https://linkedin.com" target="_blank" rel="noreferrer">
-                  <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-                  LinkedIn
-                </a>
-                <a class="link" href="mailto:thewolfuego@gmail.com">
-                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 01-2.06 0L2 7"/></svg>
-                  Contact
-                </a>
-              </div>
+              <p class="t-note">Cette route n'existe pas sur ce réseau.</p>
+              <a href="/" class="btn-home">cd ~/  —  Retour à l'accueil</a>
             `
             output.appendChild(el)
-            setTimeout(() => {
-              const bar = document.getElementById("bar")
-              const pct = document.getElementById("pct")
-              if (bar) bar.style.width = "73%"
-              if (pct) pct.textContent = "73%"
-            }, 200)
           } else {
             const el = document.createElement("span")
             el.className = `t-line ${line.cls}`
@@ -282,7 +251,7 @@
       let delay = 300
       for (const line of LINES) {
         await appendLine(line, delay)
-        delay = 360
+        delay = line.cls === "t-error" ? 600 : 380
       }
     }
 
