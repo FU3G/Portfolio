@@ -17,16 +17,16 @@ export default function Globe() {
     // Pour personnaliser : modifier les deux objets ci-dessous.
     const THEMES = {
       light: {
-        dark:          0,           // 0 = océan blanc, continents gris
-        baseColor:     [1, 1, 1],   // blanc
+        dark:          0,
+        baseColor:     [1, 1, 1],
         glowColor:     [0.8, 0.8, 0.8],
-        mapBrightness: 4,
+        mapBrightness: 10,
       },
       dark: {
-        dark:          1,           // 1 = océan noir, continents clairs
-        baseColor:     [0.1, 0.1, 0.11],
-        glowColor:     [0.28, 0.28, 0.32],
-        mapBrightness: 8,
+        dark:          1,
+        baseColor:     [0.149, 0.149, 0.141],
+        glowColor:     [0.149, 0.149, 0.141],
+        mapBrightness: 10,
       },
     }
 
@@ -54,11 +54,11 @@ export default function Globe() {
       theta: 0.25, // légère inclinaison vers le nord (0 = équateur centré)
 
       // Intensité de la lumière ambiante sur les continents.
-      diffuse: 1.2,
+      diffuse: 1,
 
       // Nombre de points utilisés pour dessiner la carte.
       // 8000 = rapide, 16000 = équilibré, 30000 = haute qualité.
-      mapSamples: 16000,
+      mapSamples: 20000,
 
       // Couleur des marqueurs de villes [R, G, B].
       // [0.13, 0.83, 0.35] = vert fluo (#22d35a).

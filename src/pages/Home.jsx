@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom"
 import CountUp from "../components/CountUp"
 import Globe from "../components/Globe"
 import QRCodeWidget from "../components/QRCodeWidget"
@@ -54,8 +53,8 @@ function Home() {
           <span className="text-accent">JavaScript</span> &amp; <span className="text-accent">React</span>.
         </p>
         <div className="bento-actions">
-          <Link to="/contact" className="button-primary">Me contacter</Link>
-          <Link to="/projects" className="button-secondary">Voir mes projets</Link>
+          <a href="#contact" className="button-primary">Me contacter</a>
+          <a href="#projets" className="button-secondary">Voir mes projets</a>
         </div>
       </div>
 
@@ -157,9 +156,9 @@ function Home() {
             </div>
           ))}
         </div>
-        <Link to="/projects" className="bento-cta-link">
+        <a href="#projets" className="bento-cta-link">
           Voir tous les projets →
-        </Link>
+        </a>
       </div>
 
     </div>
