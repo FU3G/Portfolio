@@ -7,8 +7,8 @@ const OBTAINED = [
 ]
 
 const IN_PROGRESS = [
-  { id: "ccnp",    code: "CCNP",  name: "Cisco CCNP Enterprise",   preview: "T3 2025", percent: 65, color: "#f7a040" },
-  { id: "secplus", code: "Sec+",  name: "CompTIA Security+",        preview: "T4 2025", percent: 30, color: "#8b5cf6" },
+  { id: "ccnp",    code: "CCNP",  name: "Cisco CCNP Enterprise",   preview: "T3 2026", percent: 65, color: "#f7a040" },
+  { id: "secplus", code: "Sec+",  name: "CompTIA Security+",        preview: "T4 2026", percent: 30, color: "#8b5cf6" },
 ]
 
 function Certifications() {
@@ -97,7 +97,7 @@ function Certifications() {
                     <p className="thm-stat-l">Streak</p>
                   </div>
                 </div>
-                <a href="https://tryhackme.com" target="_blank" rel="noreferrer" className="btn btn-ghost" style={{ padding: "7px 14px", fontSize: 12 }}>
+                <a href="https://tryhackme.com/p/FW3G0" target="_blank" rel="noreferrer" className="btn btn-ghost" style={{ padding: "7px 14px", fontSize: 12 }}>
                   Profil ↗
                 </a>
               </div>

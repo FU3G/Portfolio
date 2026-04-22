@@ -173,11 +173,11 @@ function Projects() {
         <div className="proj-legend">
           <span className="proj-legend-item">
             <span className="proj-type-dot proj-type-dot--github" />
-            Repo GitHub — synchronisé automatiquement
+            Repo GitHub
           </span>
           <span className="proj-legend-item">
             <span className="proj-type-dot proj-type-dot--manual" />
-            Projet manuel — homelab / pro
+            Projet personnel ou professionnel
           </span>
         </div>
 

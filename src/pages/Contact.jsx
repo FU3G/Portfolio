@@ -71,7 +71,7 @@ function Contact() {
               <div className="contact-meta-card">
                 <p className="contact-meta-label">Fuseau</p>
                 <p className="contact-meta-value">UTC +2</p>
-                <p className="contact-meta-sub">Île-de-France</p>
+                <p className="contact-meta-sub">Paris</p>
               </div>
             </div>
 
@@ -103,7 +103,7 @@ function Contact() {
                 </div>
                 <div className="contact-link-text">
                   <p className="contact-link-name">Email direct</p>
-                  <p className="contact-link-sub">thewolfuego@gmail.com</p>
+                  <p className="contact-link-sub">mail@pm.me</p>
                 </div>
                 <span className="contact-arrow">↗</span>
               </a>

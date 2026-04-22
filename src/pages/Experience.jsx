@@ -1,34 +1,34 @@
 const EXPERIENCE = [
   {
-    date: "2023 — Présent",
+    date: "2025 — Présent",
     title: "Administrateur Réseau",
-    company: "CNRS · Île-de-France",
+    company: "CNRS · Marseille FR",
     active: true,
-    desc: "Alternance en parallèle du Mastère MIIM. Gestion de l'infrastructure réseau multi-sites, supervision Zabbix/Grafana de 60+ équipements, migrations SD-WAN Cisco Viptela et automatisation Ansible.",
-    tags: ["Cisco Viptela", "SD-WAN", "Zabbix", "Grafana", "Ansible", "BGP"],
+    desc: "Alternance en parallèle du Mastère M2i. Gestion de l'infrastructure réseau multi-sites, supervision de 80+ équipements.",
+    tags: ["Cisco", "Aruba", "HPE", "Observium", "Netdisco"],
   },
   {
-    date: "2021 — 2023",
-    title: "Technicien Réseau & Systèmes",
-    company: "Expérience professionnelle",
+    date: "2023 — 2025",
+    title: "Gestionnaire d'Infrastructure Informatique",
+    company: "CNRS · Marseille FR",
     active: false,
-    desc: "Déploiement et maintenance d'infrastructures réseau, administration systèmes Linux/Windows, support N2/N3 et gestion des incidents.",
-    tags: ["Linux", "Windows Server", "TCP/IP", "VLAN", "VPN"],
+    desc: "Alternance en parallèle du BTS Service Informatique aux Organisations option SISR. Déploiement et maintenance d'infrastructures réseau, administration systèmes Linux/Windows, support N2/N3 et gestion des incidents.",
+    tags: ["Linux", "Windows Server", "GLPI", "VLAN", "VPN"],
   },
   {
-    date: "2019 — 2021",
-    title: "Technicien Support Infra",
-    company: "Expérience professionnelle",
+    date: "2014 — 2023",
+    title: "Technicien Electrique TGV",
+    company: "SNCF · Marseille - Lyon FR",
     active: false,
-    desc: "Support utilisateurs et infrastructure, déploiement poste de travail, participation à des projets de virtualisation et de monitoring.",
-    tags: ["VMware", "pfSense", "Helpdesk", "Active Directory"],
+    desc: "Alternance BAC PRO Maintenance des Equipements Industriels et CDI. Entretien et dépannage des TGV au niveau électrique. Travail en équipe, gestion de la sécurité et respect des procédures strictes dans un environnement exigeant.",
+    tags: ["Dépannage", "Documentation", "Sécurité", "Travail d'équipe"],
   },
 ]
 
 const SKILLS = [
   {
     group: "Réseau & Routing",
-    items: ["Cisco IOS", "Cisco Viptela", "BGP", "OSPF", "SD-WAN", "VLAN", "VPN IPsec", "QoS"],
+    items: ["Cisco IOS", "Cisco Viptela", "BGP", "OSPF", "SD-WAN", "VLAN", "VPN IPsec"],
   },
   {
     group: "Sécurité",
@@ -40,7 +40,7 @@ const SKILLS = [
   },
   {
     group: "Cloud & Dev",
-    items: ["Azure AZ-104", "Python", "JavaScript", "React", "Netmiko", "Jinja2"],
+    items: ["Python", "JavaScript", "React", "Git", "Nextcloud"],
   },
 ]
 
@@ -51,7 +51,7 @@ function Experience() {
         <p className="section-label">Parcours</p>
         <h2 className="section-title">Expérience &amp; Compétences</h2>
         <p className="section-sub">
-          5 ans en administration réseau, de la maintenance N2 aux migrations SD-WAN multi-sites.
+          5 ans en administration réseau, 9 ans en dépannage électrique.
         </p>
 
         <div className="exp-layout">
