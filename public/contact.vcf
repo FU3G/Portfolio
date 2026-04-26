@@ -1,9 +1,12 @@
 BEGIN:VCARD
 VERSION:3.0
-FN:Greg P
-EMAIL:gregph13@email.com
-URL:https://linkedin.com/in/ton-profil
-URL:https://github.com/FU3G
-URL:https://portfolio.com
-NOTE:Admin Réseau
+FN:Gregory Phina
+N:Phina;Gregory;;;
+EMAIL;TYPE=INTERNET:gregory.phina@pm.me
+URL;TYPE=WORK:https://portfolio-zeta-five-42.vercel.app
+URL;TYPE=WORK:https://linkedin.com/in/gregoryphina
+URL;TYPE=WORK:https://github.com/FU3G
+TITLE:Administrateur Réseau
+ORG:CNRS
+NOTE:Mastère Manager en Ingénierie Informatique · M2i
 END:VCARD

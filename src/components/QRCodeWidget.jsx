@@ -11,18 +11,30 @@
 
 import { QRCodeSVG } from "qrcode.react"
 
-function QRCodeWidget({ color = "#888888", size = 110 }) {
-  // window.location.origin = l'URL de base du site (ex: https://gregoryphina.vercel.app)
-  const vcardUrl = `${window.location.origin}/contact.vcf`
+// Données vCard encodées directement dans le QR — pas besoin d'internet pour le scan,
+// l'app Contacts s'ouvre immédiatement sur iOS et Android.
+const VCARD_DATA = `BEGIN:VCARD
+VERSION:3.0
+FN:Gregory Phina
+N:Phina;Gregory;;;
+EMAIL;TYPE=INTERNET:gregory.phina@pm.me
+URL;TYPE=WORK:https://portfolio-zeta-five-42.vercel.app
+URL;TYPE=WORK:https://linkedin.com/in/gregoryphina
+URL;TYPE=WORK:https://github.com/FU3G
+TITLE:Administrateur Réseau
+ORG:CNRS
+NOTE:Mastère Manager en Ingénierie Informatique · M2i
+END:VCARD`
 
+function QRCodeWidget({ color = "#888888", size = 110 }) {
   return (
     <div className="qr-widget">
       <QRCodeSVG
-        value={vcardUrl}      // URL encodée dans le QR
+        value={VCARD_DATA}
         size={size}
-        fgColor={color}       // couleur des carrés du QR
-        bgColor="transparent" // fond transparent (s'adapte au thème)
-        level="H"             // niveau de correction d'erreur : H = haute (30%)
+        fgColor={color}
+        bgColor="transparent"
+        level="M"
       />
     </div>
   )
